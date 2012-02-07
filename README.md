@@ -1,3 +1,3 @@
-# QA Forms
+# Dynamic Forms
 
-Dyanmic QA forms using Sinatra
+Dynamic forms using Sinatra
