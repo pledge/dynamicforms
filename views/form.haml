@@ -1,0 +1,9 @@
+%h2 #{form[:Name]}
+
+- question_groups.each do |qg|
+	%h3 #{qg[:Prompt]}
+	- question_group_questions[qg[:ID]].each do |qgq|
+		%div #{questions[qgq[:ID]][:Label]} - #{questions[qgq[:ID]][:rendered]} 
+
+
+

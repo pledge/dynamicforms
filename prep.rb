@@ -43,3 +43,33 @@ DB.create_table :form_question_group do
 	# unique key for OrderIndex
 end
 
+
+ds = DB[:form]
+ds.insert(:Name => 'My First Form')
+ds.insert(:Name => 'Just Personal Details')
+ds.insert(:Name => 'Just about your car')
+
+ds = DB[:question]
+ds.insert(:Label => 'Forename', :QuestionType => 'text')
+ds.insert(:Label => 'Surname', :QuestionType => 'text')
+ds.insert(:Label => 'Gender', :QuestionType => 'radio', :DataProvider => 'male;female')
+ds.insert(:Label => 'Model', :QuestionType => 'text')
+ds.insert(:Label => 'Engine Size', :QuestionType => 'select', :DataProvider => 'small;medium;large')
+
+ds = DB[:question_group]
+ds.insert(:Name => 'Personal Details', :Prompt => 'Please answer these questions about your personal details')
+ds.insert(:Name => 'Car Details', :Prompt => 'We need to know more about your car')
+
+ds = DB[:question_group_question]
+ds.insert(:FK_QuestionGroupID => 1, :FK_QuestionID => 1, :OrderIndex => 1)
+ds.insert(:FK_QuestionGroupID => 1, :FK_QuestionID => 2, :OrderIndex => 2)
+ds.insert(:FK_QuestionGroupID => 1, :FK_QuestionID => 3, :OrderIndex => 3)
+ds.insert(:FK_QuestionGroupID => 2, :FK_QuestionID => 4, :OrderIndex => 1)
+ds.insert(:FK_QuestionGroupID => 2, :FK_QuestionID => 5, :OrderIndex => 2)
+
+ds = DB[:form_question_group]
+ds.insert(:FK_FormID => 1, :FK_QuestionGroupID => 1, :OrderIndex => 1)
+ds.insert(:FK_FormID => 1, :FK_QuestionGroupID => 2, :OrderIndex => 2)
+ds.insert(:FK_FormID => 2, :FK_QuestionGroupID => 1, :OrderIndex => 1)
+ds.insert(:FK_FormID => 3, :FK_QuestionGroupID => 1, :OrderIndex => 1)
+
