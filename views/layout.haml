@@ -1,31 +1,11 @@
+<!DOCTYPE html>
 %html
 	%head
-		%title Refinery 2
-		:css
-			body {
-				font-family: Helvetica;
-				background-color: #161616;
-				color: white;
-			}
-
-			h1 {
-				/*color: #EE954B;*/
-				color : #BD2735;
-			}
-
-			h1 a {
-				color : #BD2735;
-			}
-			
-			h2 {
-				color : #97AD00;
-			}
-
-			a {
-				color: white;
-			}
+		%title Dynamic Forms
+		%link(rel="stylesheet" href="/lib/bootstrap-2.0/css/bootstrap.min.css")
 			
 	%body
-		%h1 
-			%a{:href => '/' } Refinery Numero Duo
-		= yield
+		.container
+			%h1 
+				%a{:href => '/' } Dynamic Forms
+			= yield

@@ -1,4 +1,4 @@
 - options.each do |i|
-		%label{:for => "#{i}"}= i
-		%input{:id => i, :name => qid, :type => 'radio', :value => i}
+	%label{:for => "#{i}", :class => 'radio'} 
+		%input{:id => i, :name => qid, :type => 'radio', :value => i}= i
 

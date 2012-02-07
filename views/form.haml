@@ -1,9 +1,11 @@
 %h2 #{form[:Name]}
 
-- question_groups.each do |qg|
-	%h3 #{qg[:Prompt]}
-	- question_group_questions[qg[:ID]].each do |qgq|
-		%div #{questions[qgq[:ID]][:Label]} - #{questions[qgq[:ID]][:rendered]} 
-
-
+%form{:class => "form-horizontal"}
+	- question_groups.each do |qg|
+		%fieldset
+			%legend #{qg[:Prompt]}
+			- question_group_questions[qg[:ID]].each do |qgq|
+				%div{:class => "control-group"} 
+					%label{:class => 'control-label'} #{questions[qgq[:ID]][:Label]} 
+					.controls #{questions[qgq[:ID]][:rendered]} 
 
