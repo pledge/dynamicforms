@@ -52,9 +52,9 @@ ds.insert(:Name => 'Just about your car')
 ds = DB[:question]
 ds.insert(:Label => 'Forename', :QuestionType => 'text')
 ds.insert(:Label => 'Surname', :QuestionType => 'text')
-ds.insert(:Label => 'Gender', :QuestionType => 'radio', :DataProvider => 'male;female')
+ds.insert(:Label => 'Gender', :QuestionType => 'radio', :DataProvider => 'Male;Female')
 ds.insert(:Label => 'Model', :QuestionType => 'text')
-ds.insert(:Label => 'Engine Size', :QuestionType => 'select', :DataProvider => 'small;medium;large')
+ds.insert(:Label => 'Engine Size', :QuestionType => 'select', :DataProvider => 'Small;Medium;Large')
 
 ds = DB[:question_group]
 ds.insert(:Name => 'Personal Details', :Prompt => 'Please answer these questions about your personal details')
