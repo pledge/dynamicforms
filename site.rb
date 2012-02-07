@@ -3,11 +3,6 @@ require 'sinatra'
 require 'sequel'
 require 'logger'
 
-# Configuration
-
-#DB = Sequel.connect('mysql://root:@127.0.0.1/refinery2',
-#	:logger => Logger.new('log/db.log')
-#)
 DB = Sequel.sqlite 'target/forms.db', :loggers => [Logger.new($stdout)]
 
 configure do
@@ -18,7 +13,7 @@ not_found do
 end
 
 error do
-	"Oops, show the whale"
+	haml :error
 end
 
 # Routes
@@ -31,6 +26,8 @@ get '/form/:id' do
 	form_id = params[:id]
 
 	form = DB[:form].filter(:ID => form_id).first
+
+	raise 'Unknown form' if form.nil?
 
 	question_groups = DB[:form_question_group].join(:question_group, :ID => :FK_QuestionGroupID).filter(:FK_FormID => form_id).
 		order_by(:OrderIndex).all
@@ -77,5 +74,4 @@ end
 def translate_options(ops)
 	ops.split(";")
 end
-
 
